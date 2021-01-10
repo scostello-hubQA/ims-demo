@@ -15,6 +15,8 @@ public class Customer {
 		this.id = id;
 		this.firstName = firstName;
 		this.surname = surname;
+	
+
 	}
 
 	public Long getId() {
@@ -64,8 +66,9 @@ public class Customer {
 		if (getClass() != obj.getClass())
 			return false;
 		Customer other = (Customer) obj;
+		
 		if (firstName == null) {
-			if (other.firstName != null)
+			if (other.firstName != null) 
 				return false;
 		} else if (!firstName.equals(other.firstName))
 			return false;
