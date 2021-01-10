@@ -6,7 +6,7 @@ import com.qa.ims.utils.Utils;
 
 public enum Domain {
 
-	CUSTOMER("Information about customers"),
+	CUSTOMER("Info about customers"),
 	ITEM("Individual Items"),
 	ORDER("Purchases of items"),
 	STOP("To close the application");

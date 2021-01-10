@@ -29,31 +29,36 @@ public class Ims {
 		String password = Utils.getInput();
 
 		init(username, password);
+		boolean stop = false;
+		do {
 
-		LOGGER.info("Which entity would you like to use?");
-		Domain.printDomains();
+			LOGGER.info("Which entity would you like to use?");
+			Domain.printDomains();
 
-		Domain domain = Domain.getDomain();
-		LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
+			Domain domain = Domain.getDomain();
+			LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
 
-		Action.printActions();
-		Action action = Action.getAction();
+			Action.printActions();
+			Action action = Action.getAction();
 
-		switch (domain) {
-		case CUSTOMER:
-			CustomerController customerController = new CustomerController(
-					new CustomerServices(new CustomerDaoMysql(username, password)));
-			doAction(customerController, action);
-			break;
-		case ITEM:
-			break;
-		case ORDER:
-			break;
-		case STOP:
-			break;
-		default:
-			break;
-		}
+			switch (domain) {
+			case CUSTOMER:
+				CustomerController customerController = new CustomerController(
+						new CustomerServices(new CustomerDaoMysql(username, password)));
+				doAction(customerController, action);
+				break;
+			case ITEM:
+				break;
+			case ORDER:
+				break;
+			case STOP:
+				stop = true;
+				break;
+			default:
+				break;
+			}
+		} while (!stop);
+		LOGGER.info("GOODBYE");
 
 	}
 
