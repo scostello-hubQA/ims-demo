@@ -35,15 +35,34 @@ public class ItemController implements CrudController<Items> {
 	@Override
 	public Items create() {
 		LOGGER.info("Please enter item name");
+		String itemName = getInput();
 		LOGGER.info("Please enter item price");
+		Double price = Double.valueOf(getInput());
 		LOGGER.info("Please enter item stock");
-		return null;
+		Integer stock = Integer.valueOf(getInput());
+		Items items = itemservice.create(new Items(itemName, price, stock));
+		LOGGER.info("item created");
+		return items;
+		
+		
+
 	}
 
 	@Override
 	public Items update() {
-		// TODO Auto-generated method stub
-		return null;
+		LOGGER.info("Please enter the ID of the item you want to update");
+		Long id = Long.valueOf(getInput());
+		LOGGER.info("Please enter item name");
+		String itemName = getInput();
+		LOGGER.info("Please enter item price");
+		Double price = Double.valueOf(getInput());
+		LOGGER.info("Please enter item stock");
+		Integer stock = Integer.valueOf(getInput());
+		Items items = itemservice.update(new Items(id, itemName, price, stock));
+		LOGGER.info("item updated");
+		return items;
+		
+		
 	}
 
 	@Override
