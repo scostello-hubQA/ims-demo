@@ -10,7 +10,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.mysql.cj.xdevapi.Result;
 import com.qa.ims.persistence.domain.Items;
 
 public class ItemsDaoMysql implements Dao<Items> {
