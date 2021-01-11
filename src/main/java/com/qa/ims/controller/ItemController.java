@@ -9,24 +9,24 @@ import com.qa.ims.services.CrudServices;
 import com.qa.ims.utils.Utils;
 
 public class ItemController implements CrudController<Items> {
-	
+
 	public static final Logger LOGGER = Logger.getLogger(ItemController.class);
-	
+
 	private CrudServices<Items> itemservice;
-	
+
 	public ItemController(CrudServices<Items> itemservice) {
 		this.itemservice = itemservice;
 	}
-	
+
 	String getInput() {
 		return Utils.getInput();
-		
+
 	}
 
 	@Override
 	public List<Items> readAll() {
 		List<Items> items = itemservice.readAll();
-		for(Items item:items) {
+		for (Items item : items) {
 			LOGGER.info(item.toString());
 		}
 		return items;
@@ -43,8 +43,6 @@ public class ItemController implements CrudController<Items> {
 		Items items = itemservice.create(new Items(itemName, price, stock));
 		LOGGER.info("item created");
 		return items;
-		
-		
 
 	}
 
@@ -61,14 +59,15 @@ public class ItemController implements CrudController<Items> {
 		Items items = itemservice.update(new Items(id, itemName, price, stock));
 		LOGGER.info("item updated");
 		return items;
-		
-		
+
 	}
 
 	@Override
 	public void delete() {
-		// TODO Auto-generated method stub
-		
+		LOGGER.info("Please enter to ID of the item you want to delete: ");
+		Long id = Long.valueOf(getInput());
+		itemservice.delete(id);
+
 	}
 
 }
