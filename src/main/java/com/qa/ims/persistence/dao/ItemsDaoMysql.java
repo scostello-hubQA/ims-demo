@@ -30,59 +30,100 @@ public class ItemsDaoMysql implements Dao<Items> {
 		this.username = username;
 		this.password = password;
 	}
-	
-	Items itemsFromResultSet(ResultSet resultSet) throws SQLException{
+
+	Items itemsFromResultSet(ResultSet resultSet) throws SQLException {
 		Long itemId = resultSet.getLong("id");
 		String itemName = resultSet.getString("itemName");
 		double price = resultSet.getDouble("Price");
 		int stock = resultSet.getInt("Stock");
-		return new Items (itemId, itemName, price, stock);
-		
-		
-		}
-	
-	
+		return new Items(itemId, itemName, price, stock);
+
+	}
 
 	@Override
 	public List<Items> readAll() {
-	try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
-			Statement stmt = connection.createStatement();
-			ResultSet resultSet = stmt.executeQuery("select * from items");){
-		ArrayList<Items> items =new ArrayList<>();
-		while (resultSet.next()) {
-			items.add(itemsFromResultSet(resultSet));
-			
+		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+				Statement stmt = connection.createStatement();
+				ResultSet resultSet = stmt.executeQuery("select * from items");) {
+			ArrayList<Items> items = new ArrayList<>();
+			while (resultSet.next()) {
+				items.add(itemsFromResultSet(resultSet));
+
+			}
+			return items;
+		} catch (SQLException e) {
+			LOGGER.debug(e.getStackTrace());
+			LOGGER.error(e.getMessage());
 		}
-		return items;
-	}catch (SQLException e) {
-		LOGGER.debug(e.getStackTrace());
-		LOGGER.error(e.getMessage());
+		return new ArrayList<>();
 	}
-	return new ArrayList<>();
+
+	public Items readLatest() {
+		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+				Statement stmt = connection.createStatement();
+				ResultSet resultSet = stmt.executeQuery("SELECT * FROM items ORDER BY id DESC LIMIT 1");) {
+			resultSet.next();
+			return itemsFromResultSet(resultSet);
+		} catch (Exception e) {
+			LOGGER.debug(e.getStackTrace());
+			LOGGER.error(e.getMessage());
+		}
+		return null;
 	}
-			
-			
-		// TODO Auto-generated catch block
-
-				
-
 
 	@Override
 	public Items create(Items t) {
-		// TODO Auto-generated method stub
+		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+				Statement stmt = connection.createStatement();) {
+			stmt.executeUpdate("insert into items(itemName, price, stock) values('" + t.getItemName() + "`,`"
+					+ t.getPrice() + "`,`" + t.getStock() + "`)");
+			return readLatest();
+		} catch (Exception e) {
+			LOGGER.debug(e.getStackTrace());
+			LOGGER.error(e.getMessage());
+		}
+		return null;
+	}
+
+	public Items readItem(Long id) {
+		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+				Statement stmt = connection.createStatement();
+				ResultSet resultSet = stmt.executeQuery("SELECT FROM items where id = " + id);) {
+			resultSet.next();
+			return itemsFromResultSet(resultSet);
+		} catch (Exception e) {
+			LOGGER.debug(e.getStackTrace());
+			LOGGER.error(e.getMessage());
+		}
 		return null;
 	}
 
 	@Override
 	public Items update(Items t) {
-		// TODO Auto-generated method stub
+		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+				Statement stmt = connection.createStatement();) {
+			stmt.execute("update items set itemName =`" + t.getItemName() + "`price =`" + t.getPrice() + "`stock = `"
+					+ t.getStock() + "`where item_id = `" + t.getItem_id());
+			return readItem(t.getItem_id());
+
+		} catch (Exception e) {
+			LOGGER.debug(e.getStackTrace());
+			LOGGER.error(e.getMessage());
+		}
 		return null;
 	}
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
-		
+		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+				Statement stmt = connection.createStatement();) {
+			stmt.executeUpdate("delete from items where id = " + id);
+		} catch (Exception e) {
+			LOGGER.debug(e.getStackTrace());
+			LOGGER.error(e.getMessage());
+
+		}
+
 	}
 
 }
