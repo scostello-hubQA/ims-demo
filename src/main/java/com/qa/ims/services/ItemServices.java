@@ -18,13 +18,13 @@ public class ItemServices implements CrudServices<Items> {
 		return itemDao.readAll();
 	}
 	
-	public Items create(Items t) {
-		return itemDao.create(t);
+	public Items create(Items item) {
+		return itemDao.create(item);
 	}
 
 	
-	public Items update(Items t) {
-	return itemDao.update(t);
+	public Items update(Items item) {
+	return itemDao.update(item);
 	}
 
 	

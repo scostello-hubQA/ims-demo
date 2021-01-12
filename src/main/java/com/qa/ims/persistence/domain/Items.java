@@ -63,6 +63,12 @@ public class Items {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+	
+	
+	
+	public String toString() {
+		return "Items [itemId=" + itemId + ", itemName=" + itemName + ", price=" + price + ", stock=" + stock + "]";
+	}
 
 
 	@Override
