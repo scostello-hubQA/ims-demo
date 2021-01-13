@@ -118,8 +118,14 @@ public class OrdersDaoMysql implements Dao<Orders> {
 
 	@Override
 	public void delete(long id) {
-		// TODO Auto-generated method stub
+		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+				Statement stmt = conn.createStatement();) {
+			stmt.executeUpdate("delete from orders where order_id = " + id);
+		} catch (Exception e) {
+			LOGGER.debug(e.getStackTrace());
+			LOGGER.error(e.getMessage());
 
+		}
 	}
 
 }
