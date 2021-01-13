@@ -2,13 +2,13 @@ package com.qa.ims.persistence.domain;
 
 public class Items {
 	
-	private long itemId;
+	private Long itemId;
 	private String itemName;
-	private double price;
-	private int stock;
+	private Double price;
+	private Integer stock;
 	
 	
-	public Items(String itemName, double price, int stock) {
+	public Items(String itemName, Double price, Integer stock) {
 		this.itemName = itemName;
 		this.price = price;
 		this.stock = stock;
@@ -17,7 +17,7 @@ public class Items {
 	}
 
 
-	public Items(long item_id, String itemName, double price, int stock) {
+	public Items(Long item_id, String itemName, Double price, Integer stock) {
 		this.itemId = item_id;
 		this.itemName = itemName;
 		this.price = price;
@@ -25,12 +25,12 @@ public class Items {
 	}
 
 
-	public long getItem_id() {
+	public Long getItem_id() {
 		return itemId;
 	}
 
 
-	public void setItem_id(long item_id) {
+	public void setItem_id(Long item_id) {
 		this.itemId = item_id;
 	}
 
@@ -45,29 +45,29 @@ public class Items {
 	}
 
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
 
-	public int getStock() {
+	public Integer getStock() {
 		return stock;
 	}
 
 
-	public void setStock(int stock) {
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
 	
 	
 	
 	public String toString() {
-		return "Items [itemId=" + itemId + ", itemName=" + itemName + ", price=" + price + ", stock=" + stock + "]";
+		return "Item Id: " + itemId + ", Item Name: " + itemName + ", price: " + price + ", stock: " + stock;
 	}
 
 
