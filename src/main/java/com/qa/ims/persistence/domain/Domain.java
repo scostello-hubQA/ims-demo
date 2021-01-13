@@ -9,6 +9,7 @@ public enum Domain {
 	CUSTOMER("Info about customers"),
 	ITEM("Individual Items"),
 	ORDER("Purchases of items"),
+	ORDERLINE("Pulls items and orders together"),
 	STOP("To close the application");
 	
 	public static final Logger LOGGER = Logger.getLogger(Domain.class);
@@ -22,7 +23,7 @@ public enum Domain {
 	public String getDescription() {
 		return this.name() + ": " +this.description;
 	}
-	
+
 	public static void printDomains() {
 		for (Domain domain : Domain.values()) {
 			LOGGER.info(domain.getDescription());
