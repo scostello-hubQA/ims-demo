@@ -2,20 +2,20 @@ package com.qa.ims.persistence.domain;
 
 public class Orders {
 	
-	private long orderId;
-	private long customerId;
+	private Long orderId;
+	private Long customerId;
 	private String datePlaced;
 	
 	
 	
-	public Orders(long customerId, String datePlaced) {
+	public Orders(Long customerId, String datePlaced) {
 		this.customerId = customerId;
 		this.datePlaced = datePlaced;
 	}
 
 
 
-	public Orders(long orderId, long customerId, String datePlaced) {
+	public Orders(Long orderId, Long customerId, String datePlaced) {
 		this.orderId = orderId;
 		this.customerId = customerId;
 		this.datePlaced = datePlaced;
@@ -29,7 +29,7 @@ public class Orders {
 
 
 
-	public void setOrderId(long orderId) {
+	public void setOrderId(Long orderId) {
 		this.orderId = orderId;
 	}
 
@@ -41,7 +41,7 @@ public class Orders {
 
 
 
-	public void setCustomerId(long customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 
