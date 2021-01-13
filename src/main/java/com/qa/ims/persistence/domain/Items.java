@@ -67,7 +67,7 @@ public class Items {
 	
 	
 	public String toString() {
-		return "Items [itemId=" + itemId + ", itemName=" + itemName + ", price=" + price + ", stock=" + stock + "]";
+		return "Item Id: " + itemId + ", Item Name: " + itemName + ", price: " + price + ", stock: " + stock;
 	}
 
 
