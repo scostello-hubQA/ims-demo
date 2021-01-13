@@ -37,8 +37,11 @@ public class OrdersDaoMysql implements Dao<Orders> {
 		Long customerId = resultSet.getLong("customer_id");
 		String datePlaced = resultSet.getString("date_placed");
 		return new Orders(orderId, customerId, datePlaced);
-
+		
 	}
+
+
+	
 
 	@Override
 	public List<Orders> readAll() {
@@ -76,7 +79,7 @@ public class OrdersDaoMysql implements Dao<Orders> {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement stmt = conn.createStatement();) {
 			stmt.executeUpdate("insert into orders(customer_id, date_placed) values('" + order.getCustomerId() + "','"
-					+ order.getDatePlaced() + "')'");
+					+ order.getDatePlaced() + "')");
 			return readLatest();
 		} catch (
 
@@ -107,7 +110,7 @@ public class OrdersDaoMysql implements Dao<Orders> {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement stmt = conn.createStatement();) {
 			stmt.executeUpdate("update orders set customer_id ='" + order.getCustomerId() + "', date_placed ='"
-					+ order.getDatePlaced() + "where order_id =" + order.getOrderId());
+					+ order.getDatePlaced() + "' where order_id =" + order.getOrderId());
 			return readOrder(order.getOrderId());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
