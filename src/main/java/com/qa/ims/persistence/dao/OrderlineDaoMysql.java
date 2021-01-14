@@ -62,6 +62,16 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 
 		}
 		return new ArrayList<>();
+		
+	}
+	
+		Orderline orderlineFromResultSet1(ResultSet resultSet1) throws SQLException {
+			Long orderlineId = resultSet1.getLong("orderline_id");
+			Long itemId = resultSet1.getLong("item_id");
+			Long orderId = resultSet1.getLong("order_id");
+			Integer quantity = resultSet1.getInt("quantity");
+			Double totalPrice = resultSet1.getDouble("total_price");
+			return new Orderline(orderlineId, itemId, orderId, quantity, totalPrice);
 	}
 
 	public Orderline readLatest() {
@@ -69,7 +79,7 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 				Statement stmt = conn.createStatement();
 				ResultSet rs = stmt.executeQuery("select * from orderline order by orderline_id desc limit 1");) {
 			rs.next();
-			return orderlineFromResultSet(rs);
+			return orderlineFromResultSet1(rs);
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
@@ -96,9 +106,9 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 	public Orderline readOrderline(Long orderlineId) {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery("select * from orders where orderline_id = " + orderlineId);) {
+				ResultSet rs = stmt.executeQuery("select * from orderline where orderline_id = " + orderlineId);) {
 			rs.next();
-			return orderlineFromResultSet(rs);
+			return orderlineFromResultSet1(rs);
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
@@ -124,7 +134,7 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 	public void delete(long id) {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement stmt = conn.createStatement();) {
-			stmt.executeUpdate("delete from orders where orderline_id = " + id);
+			stmt.executeUpdate("delete from orderline where orderline_id = " + id);
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());
