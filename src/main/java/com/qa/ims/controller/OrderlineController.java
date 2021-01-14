@@ -41,10 +41,7 @@ public class OrderlineController implements CrudController<Orderline> {
 		Long itemId = Long.valueOf(getInput());
 		LOGGER.info("please enter the quantity of this Item you wish to add");
 		Integer quantity = Integer.valueOf(getInput());
-		LOGGER.info("please enter a total price for this order");
-		Double totalPrice = Double.valueOf(getInput());
-		Orderline orderline = orderlineServices.create(new Orderline(itemId, orderId, quantity, totalPrice));
-		
+		Orderline orderline = orderlineServices.create(new Orderline(itemId, orderId, quantity));
 		LOGGER.info("your orderline is created");
 		return orderline;
 	}
@@ -59,9 +56,7 @@ public class OrderlineController implements CrudController<Orderline> {
 		Long itemId = Long.valueOf(getInput());
 		LOGGER.info("please update the quantity of this item");
 		Integer quantity = Integer.valueOf(getInput());
-		LOGGER.info("please ammend the total price of this orderline");
-		Double totalPrice = Double.valueOf(getInput());
-		Orderline orderline = orderlineServices.update(new Orderline(orderlineId, itemId, orderId, quantity, totalPrice));
+		Orderline orderline = orderlineServices.update(new Orderline(orderlineId, itemId, orderId, quantity));
 		
 		LOGGER.info("your orderline has been updated in line with the information given");
 		return orderline;

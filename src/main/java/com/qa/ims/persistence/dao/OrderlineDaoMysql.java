@@ -38,11 +38,11 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 		Long itemId = resultSet.getLong("item_id");
 		Long orderId = resultSet.getLong("order_id");
 		Integer quantity = resultSet.getInt("quantity");
-		Double totalPrice = resultSet.getDouble("total_price");
 		Double price = resultSet.getDouble("price");
 		Long customer_id = resultSet.getLong("customer_id");
 		String first_name = resultSet.getString("first_name");
-		return new Orderline(orderlineId, itemId, orderId, quantity, totalPrice, price, customer_id, first_name);
+		String item_name = resultSet.getString("item_name");
+		return new Orderline(orderlineId, itemId, orderId, quantity, price, customer_id, first_name, item_name);
 
 	}
 
@@ -50,7 +50,7 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 	public List<Orderline> readAll() {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery("select ol.orderline_id, ol.order_id, ol.item_id, ol.quantity, ol.total_price, items.price, cu.customer_id, cu.first_name from orderline ol join orders on orders.order_id=ol.order_id join items on items.item_id=ol.item_id join customers cu on cu.customer_id=orders.customer_id");) {
+				ResultSet rs = stmt.executeQuery("select ol.orderline_id, ol.order_id, ol.item_id, ol.quantity, items.item_name, items.price, cu.customer_id, cu.first_name from orderline ol join orders on orders.order_id=ol.order_id join items on items.item_id=ol.item_id join customers cu on cu.customer_id=orders.customer_id;");) {
 			ArrayList<Orderline> orderline = new ArrayList<>();
 			while (rs.next()) {
 				orderline.add(orderlineFromResultSet(rs));
@@ -70,8 +70,7 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 			Long itemId = resultSet1.getLong("item_id");
 			Long orderId = resultSet1.getLong("order_id");
 			Integer quantity = resultSet1.getInt("quantity");
-			Double totalPrice = resultSet1.getDouble("total_price");
-			return new Orderline(orderlineId, itemId, orderId, quantity, totalPrice);
+			return new Orderline(orderlineId, itemId, orderId, quantity);
 	}
 
 	public Orderline readLatest() {
@@ -91,9 +90,8 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 	public Orderline create(Orderline orderline) {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement stmt = conn.createStatement();) {
-			stmt.executeUpdate("insert into orderline(item_id, order_id, quantity, total_price) values('"
-					+ orderline.getItemId() + "','" + orderline.getOrderId() + "','" + orderline.getQuantity() + "','"
-					+ orderline.getTotalPrice() + "')");
+			stmt.executeUpdate("insert into orderline(item_id, order_id, quantity) values('"
+					+ orderline.getItemId() + "','" + orderline.getOrderId() + "','" + orderline.getQuantity() + "')");
 			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -121,7 +119,7 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 	public Orderline update(Orderline orderline) {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement stmt = conn.createStatement();){
-			stmt.executeUpdate("update orderline set item_id = '" + orderline.getItemId() + "', order_id ='" + orderline.getOrderId() + "', quantity ='" + orderline.getQuantity() + "', total_price ='" + orderline.getTotalPrice() + "' where orderline_id =" + orderline.getOrderlineId());
+			stmt.executeUpdate("update orderline set item_id = '" + orderline.getItemId() + "', order_id ='" + orderline.getOrderId() + "', quantity ='" + orderline.getQuantity() + "' where orderline_id =" + orderline.getOrderlineId());
 			return readOrderline(orderline.getOrderlineId());
 		}catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());

@@ -6,28 +6,26 @@ public class Orderline {
 	private Long itemId;
 	private Long orderId;
 	private Integer quantity;
-	private Double totalPrice;
 	private Double price;
 	private Long customer_id;
 	private String first_name;
+	private String item_name;
 	
 	
 	
-	public Orderline(Long orderlineId, Long itemId, Long orderId, Integer quantity, Double totalPrice) {
+	public Orderline(Long orderlineId, Long itemId, Long orderId, Integer quantity) {
 		this.orderlineId = orderlineId;
 		this.itemId = itemId;
 		this.orderId = orderId;
 		this.quantity = quantity;
-		this.totalPrice = totalPrice;
 	}
 
 
-	public Orderline(Long itemId, Long orderId, Integer quantity, Double totalPrice) {
+	public Orderline(Long itemId, Long orderId, Integer quantity) {
 		super();
 		this.itemId = itemId;
 		this.orderId = orderId;
 		this.quantity = quantity;
-		this.totalPrice = totalPrice;
 	}
 	
 	
@@ -35,17 +33,17 @@ public class Orderline {
 // use this for orderline compound 
 
 
-	public Orderline(Long orderlineId, Long itemId, Long orderId, Integer quantity, Double totalPrice, Double price,
-			Long customer_id, String first_name) {
+	public Orderline(Long orderlineId, Long itemId, Long orderId, Integer quantity, Double price,
+			Long customer_id, String first_name, String item_name) {
 		super();
 		this.orderlineId = orderlineId;
 		this.itemId = itemId;
 		this.orderId = orderId;
 		this.quantity = quantity;
-		this.totalPrice = totalPrice;
 		this.price = price;
 		this.customer_id = customer_id;
 		this.first_name = first_name;
+		this.item_name = item_name;
 	}
 	
 	public Long getOrderlineId() {
@@ -85,16 +83,6 @@ public class Orderline {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-
-
-	public Double getTotalPrice() {
-		return totalPrice;
-	}
-
-
-	public void setTotalPrice(Double totalPrice) {
-		this.totalPrice = totalPrice;
-	}
 	
 	
 	
@@ -103,9 +91,9 @@ public class Orderline {
 
 	@Override
 	public String toString() {
-		return "Orderline [orderlineId=" + orderlineId + ", itemId=" + itemId + ", orderId=" + orderId + ", quantity="
-				+ quantity + ", totalPrice=" + totalPrice + ", price=" + price + ", customer_id=" + customer_id
-				+ ", first_name=" + first_name + "]";
+		return "Orderline ID: " + orderlineId + ", Item ID: " + itemId + ", Item Name: " + item_name + ", Order ID: " + orderId + ", Quantity: "
+				+ quantity + ", Individual Price: " + price + ", Total Price: " + price*quantity + ", Customers ID: " + customer_id
+				+ ", First Name of Customer: " + first_name;
 	}
 
 
@@ -117,7 +105,6 @@ public class Orderline {
 		result = prime * result + ((orderId == null) ? 0 : orderId.hashCode());
 		result = prime * result + ((orderlineId == null) ? 0 : orderlineId.hashCode());
 		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
-		result = prime * result + ((totalPrice == null) ? 0 : totalPrice.hashCode());
 		return result;
 	}
 
@@ -150,11 +137,6 @@ public class Orderline {
 			if (other.quantity != null)
 				return false;
 		} else if (!quantity.equals(other.quantity))
-			return false;
-		if (totalPrice == null) {
-			if (other.totalPrice != null)
-				return false;
-		} else if (!totalPrice.equals(other.totalPrice))
 			return false;
 		return true;
 	}
