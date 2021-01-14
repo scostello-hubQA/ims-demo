@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 import com.qa.ims.persistence.domain.Orderline;
 import com.qa.ims.services.CrudServices;
+import com.qa.ims.services.OrderlineServices;
 import com.qa.ims.utils.Utils;
 
 public class OrderlineController implements CrudController<Orderline> {
@@ -25,25 +25,53 @@ public class OrderlineController implements CrudController<Orderline> {
 
 	@Override
 	public List<Orderline> readAll() {
-		// TODO Auto-generated method stub
-		return null;
+	List<Orderline> orderline = orderlineServices.readAll();
+	for (Orderline orderlines: orderline) {
+		LOGGER.info(orderlines.toString());
+	}
+		return orderline;
 	}
 
 	@Override
 	public Orderline create() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		LOGGER.info("please enter a corresponding order ID");
+		Long orderId = Long.valueOf(getInput());
+		LOGGER.info("please enter a corresponding item ID to add to this order");
+		Long itemId = Long.valueOf(getInput());
+		LOGGER.info("please enter the quantity of this Item you wish to add");
+		Integer quantity = Integer.valueOf(getInput());
+		LOGGER.info("please enter a total price for this order");
+		Double totalPrice = Double.valueOf(getInput());
+		Orderline orderline = orderlineServices.create(new Orderline(itemId, orderId, quantity, totalPrice));
+		
+		LOGGER.info("your orderline is created");
+		return orderline;
 	}
 
 	@Override
 	public Orderline update() {
-		// TODO Auto-generated method stub
-		return null;
+		LOGGER.info("Please enter the corresponding orderline ID you wish to update");
+		Long orderlineId = Long.valueOf(getInput());
+		LOGGER.info("please enter the order ID linked with this line");
+		Long orderId = Long.valueOf(getInput());
+		LOGGER.info("Please enter the item ID you wish to update");
+		Long itemId = Long.valueOf(getInput());
+		LOGGER.info("please update the quantity of this item");
+		Integer quantity = Integer.valueOf(getInput());
+		LOGGER.info("please ammend the total price of this orderline");
+		Double totalPrice = Double.valueOf(getInput());
+		Orderline orderline = orderlineServices.update(new Orderline(orderlineId, itemId, orderId, quantity, totalPrice));
+		
+		LOGGER.info("your orderline has been updated in line with the information given");
+		return orderline;
 	}
 
 	@Override
 	public void delete() {
-		// TODO Auto-generated method stub
+		LOGGER.info("Please enter the ID of the orderline you wish to delete: ");
+		Long orderlineId = Long.valueOf(getInput());
+		orderlineServices.delete(orderlineId);
 		
 	}
 

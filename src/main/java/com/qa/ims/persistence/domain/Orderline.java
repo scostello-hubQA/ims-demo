@@ -7,6 +7,10 @@ public class Orderline {
 	private Long orderId;
 	private Integer quantity;
 	private Double totalPrice;
+	private Double price;
+	private Long customer_id;
+	private String first_name;
+	
 	
 	
 	public Orderline(Long orderlineId, Long itemId, Long orderId, Integer quantity, Double totalPrice) {
@@ -25,13 +29,29 @@ public class Orderline {
 		this.quantity = quantity;
 		this.totalPrice = totalPrice;
 	}
+	
+	
+	
+// use this for orderline compound 
 
 
+	public Orderline(Long orderlineId, Long itemId, Long orderId, Integer quantity, Double totalPrice, Double price,
+			Long customer_id, String first_name) {
+		super();
+		this.orderlineId = orderlineId;
+		this.itemId = itemId;
+		this.orderId = orderId;
+		this.quantity = quantity;
+		this.totalPrice = totalPrice;
+		this.price = price;
+		this.customer_id = customer_id;
+		this.first_name = first_name;
+	}
+	
 	public Long getOrderlineId() {
 		return orderlineId;
+
 	}
-
-
 	public void setOrderlineId(Long orderlineId) {
 		this.orderlineId = orderlineId;
 	}
@@ -75,12 +95,17 @@ public class Orderline {
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	
+	
+	
+	
 
 
 	@Override
 	public String toString() {
 		return "Orderline [orderlineId=" + orderlineId + ", itemId=" + itemId + ", orderId=" + orderId + ", quantity="
-				+ quantity + ", totalPrice=" + totalPrice + "]";
+				+ quantity + ", totalPrice=" + totalPrice + ", price=" + price + ", customer_id=" + customer_id
+				+ ", first_name=" + first_name + "]";
 	}
 
 

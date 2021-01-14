@@ -39,7 +39,10 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 		Long orderId = resultSet.getLong("order_id");
 		Integer quantity = resultSet.getInt("quantity");
 		Double totalPrice = resultSet.getDouble("total_price");
-		return new Orderline(orderlineId, itemId, orderId, quantity, totalPrice);
+		Double price = resultSet.getDouble("price");
+		Long customer_id = resultSet.getLong("customer_id");
+		String first_name = resultSet.getString("first_name");
+		return new Orderline(orderlineId, itemId, orderId, quantity, totalPrice, price, customer_id, first_name);
 
 	}
 
@@ -47,7 +50,7 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 	public List<Orderline> readAll() {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery("select * from orderline");) {
+				ResultSet rs = stmt.executeQuery("select ol.orderline_id, ol.order_id, ol.item_id, ol.quantity, ol.total_price, items.price, cu.customer_id, cu.first_name from orderline ol join orders on orders.order_id=ol.order_id join items on items.item_id=ol.item_id join customers cu on cu.customer_id=orders.customer_id");) {
 			ArrayList<Orderline> orderline = new ArrayList<>();
 			while (rs.next()) {
 				orderline.add(orderlineFromResultSet(rs));
@@ -64,7 +67,7 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 	public Orderline readLatest() {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery("select all from orderline order by orderline_id desc limit 1");) {
+				ResultSet rs = stmt.executeQuery("select * from orderline order by orderline_id desc limit 1");) {
 			rs.next();
 			return orderlineFromResultSet(rs);
 		} catch (Exception e) {
