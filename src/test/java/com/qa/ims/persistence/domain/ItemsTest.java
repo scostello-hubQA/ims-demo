@@ -69,7 +69,7 @@ public class ItemsTest {
 	}
 
 	@Test
-	public void customerNameNullButOtherNameNotNull() {
+	public void itemNameNullButOtherNameNotNull() {
 		item.setItemName(null);
 		assertFalse(item.equals(other));
 	}
@@ -111,14 +111,14 @@ public class ItemsTest {
 
 	@Test
 	public void nullPrice() {
-		item.setPrice(null);
-		assertFalse(item.equals(other));
+		item.setPrice(0.0);
+		assertFalse(other.equals(item));
 	}
 
 	@Test
 	public void nullPriceOnBoth() {
-		item.setPrice(null);
-		other.setPrice(null);
+		item.setPrice(0.0);
+		other.setPrice(0.0);
 		assertTrue(item.equals(other));
 
 	}
@@ -169,8 +169,8 @@ public class ItemsTest {
 	
 	@Test
 	public void hashCodeTestWithNull() {
-		Items item = new Items(null, null, null);
-		Items other = new Items(null, null, null);
+		Items item = new Items(0L, null, 0.0, 0);
+		Items other = new Items(0L, null, 0.0, 0);
 		assertEquals(item.hashCode(), other.hashCode());
 	}
 	
