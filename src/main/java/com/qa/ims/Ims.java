@@ -43,8 +43,13 @@ public class Ims {
 
 			LOGGER.info("Which entity would you like to use?");
 			Domain.printDomains();
-
+			
 			Domain domain = Domain.getDomain();
+			if(domain.name() == "STOP") {
+				LOGGER.info("Goodbye");
+				System.exit(0);
+			}
+
 			LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
 
 			Action.printActions();

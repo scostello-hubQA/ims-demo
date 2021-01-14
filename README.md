@@ -9,8 +9,9 @@ The project document folder contains my...
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Step one - You can fork and clone this to your local computer
-Steo two - Open the project in your IDE as a Maven project
+Step one - You can fork and clone this to your local computer  
+Step two - Open the project in your IDE as a Maven project  
+Step three - You will need to change the JDBCconnection url
 ### Prerequisites
 
 What things you need to install the software and how to install them
