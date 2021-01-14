@@ -1,12 +1,16 @@
 Coverage: 34%
-# Project Title
+# Inventory Management System
 
-One Paragraph of project description goes here please
+This project allowed me to experience several new and different technologies such as...
+
+The project document folder contains my...
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
+Step one - You can fork and clone this to your local computer
+Steo two - Open the project in your IDE as a Maven project
 ### Prerequisites
 
 What things you need to install the software and how to install them
