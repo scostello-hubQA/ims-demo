@@ -1,5 +1,6 @@
 package com.qa.ims.persistence.domain;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -29,5 +30,8 @@ public class DomainTest {
 		Domain domain = Domain.STOP;
 		assertTrue(domain.getDescription().toLowerCase().contains("close"));
 	}
+	
+	
+
 
 }
