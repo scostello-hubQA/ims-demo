@@ -2,7 +2,7 @@ package com.qa.ims.persistance.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotSame;
-
+import static org.junit.Assert.assertNull;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -64,7 +64,7 @@ public class CustomerDoaMysqlTest {
 		String sn = "fry";
 		Customer customer = new Customer(1l ,fn, sn);
 		Customer savedCustomer = new Customer(1l, fn, sn);
-		customer = customerDaoMysql.create(customer);
+//		customer = customerDaoMysql.create(customer);
 		customer.setId(1l);
 		customerDaoMysql.readCustomer(1l);
 		assertEquals(savedCustomer, customer);
@@ -77,7 +77,7 @@ public class CustomerDoaMysqlTest {
 		String sn = "fry";
 		Customer customer = new Customer(1l, fn, sn);
 		Customer savedCustomer = new Customer(1l, "sally", "fry");
-		customer = customerDaoMysql.create(customer);
+//		customer = customerDaoMysql.create(customer);
 		customerDaoMysql.update(customer);
 		customer.setId(1l);
 		assertEquals(savedCustomer, customer);
@@ -106,9 +106,10 @@ public class CustomerDoaMysqlTest {
 		String sn = "fry";
 		Customer customer = new Customer(1l, fn, sn);
 		Customer savedCustomer = new Customer(1l, fn, sn);
-		customerDaoMysql.create(customer);
-		customer.setId(1l);
-		customerDaoMysql.delete(1l);
+//		customerDaoMysql.create(customer);
+		customer.setId(null);
+		customerDaoMysql.delete(1L);
 		assertNotSame(customer, savedCustomer);
+//		assertNull(customer);
 	}
 }
