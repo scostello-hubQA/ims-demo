@@ -1,8 +1,14 @@
 package com.qa.ims.persistance.dao;
 
+import static org.junit.Assert.assertEquals;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -11,11 +17,11 @@ import org.junit.Test;
 
 import com.qa.ims.Ims;
 import com.qa.ims.persistence.dao.OrderlineDaoMysql;
-
+import com.qa.ims.persistence.domain.Customer;
+import com.qa.ims.persistence.domain.Orderline;
 
 public class OrderlineDaoMysqlTest {
-	
-	
+
 	public static final Logger LOGGER = Logger.getLogger(OrderlineDaoMysql.class);
 
 	private static String jdbcConnectionUrl = "jdbc:mysql://localhost:3306/imstest";
@@ -38,25 +44,73 @@ public class OrderlineDaoMysqlTest {
 			LOGGER.error(e.getMessage());
 		}
 	}
+
 	@Test
 	public void createTest() {
+		OrderlineDaoMysql orderlineDaoMysql = new OrderlineDaoMysql(jdbcConnectionUrl, username, password);
+		Long itemId = 1l;
+		Long orderId = 1l;
+		Integer quantity = 2;
+		Orderline orderline = new Orderline(itemId, orderId, quantity);
+		Orderline savedOrderline = new Orderline(itemId, orderId, quantity);
+		orderlineDaoMysql.create(orderline);
+		assertEquals(savedOrderline, orderline);
 		
-	}
-	@Test
-	public void readTest() {
-		
-	}
-	@Test
-	public void updateTest() {
-		
-	}
-	@Test
-	public void readAllTest() {
-		
-	}
-	@Test
-	public void deleteTest() {
-		
+
 	}
 
+	@Test
+	public void readTest() {
+		OrderlineDaoMysql orderlineDaoMysql = new OrderlineDaoMysql(jdbcConnectionUrl, username, password);
+		Long itemId = 1l;
+		Long orderId = 1l;
+		Integer quantity = 2;
+		Orderline orderline = new Orderline(itemId, orderId, quantity);
+		Orderline savedOrderline = new Orderline(itemId, orderId, quantity);
+		orderlineDaoMysql.readOrderline(1l);
+		assertEquals(savedOrderline, orderline);
+
+	}
+
+	@Test
+	public void updateTest() {
+		OrderlineDaoMysql orderlineDaoMysql = new OrderlineDaoMysql(jdbcConnectionUrl, username, password);
+		Long itemId = 1l;
+		Long orderId = 1l;
+		Integer quantity = 2;
+		Orderline orderline = new Orderline(itemId, orderId, quantity);
+		Orderline savedOrderline = new Orderline(itemId, orderId, quantity);
+		orderlineDaoMysql.update(orderline);
+		assertEquals(savedOrderline, orderline);
+
+	}
+
+	@Test
+	public void readAllTest() {
+		OrderlineDaoMysql orderlineDaoMysql = new OrderlineDaoMysql(jdbcConnectionUrl, username, password);
+		Long itemId = 1l;
+		Long orderId = 1l;
+		Integer quantity = 2;
+		Orderline orderline = new Orderline(itemId, orderId, quantity);
+		Orderline savedOrderline = new Orderline(itemId, orderId, quantity);
+		List<Orderline> orderlines = new ArrayList<>();
+		orderlines.add(orderline);
+		orderlines.add(savedOrderline);
+		orderlineDaoMysql.readAll();
+		assertEquals(savedOrderline, orderline);
+
+	}
+
+	@Test
+	public void deleteTest() {
+		OrderlineDaoMysql orderlineDaoMysql = new OrderlineDaoMysql(jdbcConnectionUrl, username, password);
+		Long itemId = 1l;
+		Long orderId = 1l;
+		Integer quantity = 2;
+		Orderline orderline = new Orderline(itemId, orderId, quantity);
+		Orderline savedOrderline = new Orderline(itemId, orderId, quantity);
+		orderlineDaoMysql.delete(1l);
+		assertEquals(savedOrderline, orderline);
+
+	}
 }

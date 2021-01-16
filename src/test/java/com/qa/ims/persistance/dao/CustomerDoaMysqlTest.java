@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -112,4 +113,16 @@ public class CustomerDoaMysqlTest {
 		assertNotSame(customer, savedCustomer);
 //		assertNull(customer);
 	}
+	
+//	
+//	@After
+//	public void clean() {
+//		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+//				Statement statement = connection.createStatement();) {
+//			statement.executeUpdate("delete from imstest.customers");
+//		} catch (Exception e) {
+//			LOGGER.debug(e.getStackTrace());
+//			LOGGER.error(e.getMessage());
+//		}
+//	}
 }
