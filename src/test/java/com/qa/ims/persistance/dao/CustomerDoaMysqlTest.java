@@ -1,9 +1,8 @@
 package com.qa.ims.persistance.dao;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotSame;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -50,10 +49,10 @@ public class CustomerDoaMysqlTest {
 		CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql(jdbcConnectionUrl, username, password);
 		String fn = "sally";
 		String sn = "fry";
-		Customer customer = new Customer(null ,fn, sn);
-		Customer savedCustomer = new Customer(null, fn, sn);
+		Customer customer = new Customer(1l ,fn, sn);
+		Customer savedCustomer = new Customer(1l, fn, sn);
 		customer = customerDaoMysql.create(customer);
-		customer.setId(null);
+		customer.setId(1l);
 		assertEquals(savedCustomer, customer);
 
 	}
@@ -63,11 +62,11 @@ public class CustomerDoaMysqlTest {
 		CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql(jdbcConnectionUrl, username, password);
 		String fn = "sally";
 		String sn = "fry";
-		Customer customer = new Customer(null ,fn, sn);
-		Customer savedCustomer = new Customer(null, fn, sn);
+		Customer customer = new Customer(1l ,fn, sn);
+		Customer savedCustomer = new Customer(1l, fn, sn);
 		customer = customerDaoMysql.create(customer);
-		customer.setId(null);
-		customerDaoMysql.readCustomer(null);
+		customer.setId(1l);
+		customerDaoMysql.readCustomer(1l);
 		assertEquals(savedCustomer, customer);
 	}
 
@@ -76,11 +75,11 @@ public class CustomerDoaMysqlTest {
 		CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql(jdbcConnectionUrl, username, password);
 		String fn = "sally";
 		String sn = "fry";
-		Customer customer = new Customer(null, fn, sn);
-		Customer savedCustomer = new Customer(null, "sally", "fry");
+		Customer customer = new Customer(1l, fn, sn);
+		Customer savedCustomer = new Customer(1l, "sally", "fry");
 		customer = customerDaoMysql.create(customer);
 		customerDaoMysql.update(customer);
-		customer.setId(null);
+		customer.setId(1l);
 		assertEquals(savedCustomer, customer);
 
 	}
@@ -94,6 +93,7 @@ public class CustomerDoaMysqlTest {
 		Customer savedCustomer = new Customer(1l, fn, sn);
 		List<Customer> customers = new ArrayList<>();
 		customers.add(customer);
+		customers.add(savedCustomer);
 		customerDaoMysql.readAll();
 		assertEquals(savedCustomer, customer);
 		
@@ -102,13 +102,13 @@ public class CustomerDoaMysqlTest {
 	@Test
 	public void deleteTest() {
 		CustomerDaoMysql customerDaoMysql = new CustomerDaoMysql(jdbcConnectionUrl, username, password);
-		Long id = 1l;
 		String fn = "bruce";
 		String sn = "fry";
-		Customer customer = new Customer(id, fn, sn);
-		Customer savedCustomer = new Customer(fn, sn);
-//		customerDaoMysql.create(customer);
+		Customer customer = new Customer(1l, fn, sn);
+		Customer savedCustomer = new Customer(1l, fn, sn);
+		customerDaoMysql.create(customer);
+		customer.setId(1l);
 		customerDaoMysql.delete(1l);
-		assertNotEquals(savedCustomer, customer);
+		assertNotSame(customer, savedCustomer);
 	}
 }
