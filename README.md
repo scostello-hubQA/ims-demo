@@ -1,4 +1,4 @@
-Coverage: 34%
+Coverage: 76.1% on src/main/java  
 # Inventory Management System
 
 This project allowed me to experience several new and different technologies such as...
@@ -9,15 +9,18 @@ The project document folder contains my...
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-Step one - You can fork and clone this to your local computer  
-Step two - Open the project in your IDE as a Maven project  
-Step three - You will need to change the JDBCconnection url
+1. **_Step one_** You can fork and clone this to your local computer  
+2. **_Step two_** Open the project in your IDE as a Maven project  
+3. **_Step three_** You will need to change the JDBCconnection url
 ### Prerequisites
 
 What things you need to install the software and how to install them
 
 ```
-Give examples
+* Java JRE
+* Eclipse or other IDE
+* Maven 
+* Git Bash
 ```
 
 ### Installing
@@ -47,7 +50,11 @@ Explain how to run the automated tests for this system. Break down into which te
 Explain what these tests test, why and how to run them
 
 ```
-Give an example
+Each of the classes have its own respective partner in the src/test/java folder  
+If you wish to run the tests:
+*Right click on the class in the test folder
+ *Then 'run as' 
+  *Then 'JUnit test'  
 ```
 
 ### Integration Tests 
