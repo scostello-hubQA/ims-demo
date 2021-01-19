@@ -47,7 +47,7 @@ Explain how to run the automated tests for this system. Break down into which te
 
 ### Unit Tests 
 
-Explain what these tests test, why and how to run them
+Unit testing tests individual parts of the program to check they are correct
 
 ```
 Each of the classes have its own respective partner in the src/test/java folder  
@@ -66,7 +66,8 @@ Give an example
 
 ### And coding style tests
 
-Explain what these tests test and why
+Here we have SonarQube, this tests the viability of our whole source code.  
+It gives us a break down of 'code smells', 'vunerability', 'Bugs' and 'Security Hotspots'. 
 
 ```
 Give an example
