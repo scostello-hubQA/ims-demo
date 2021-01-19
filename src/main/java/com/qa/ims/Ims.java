@@ -33,6 +33,7 @@ public class Ims {
 	public static final Logger LOGGER = Logger.getLogger(Ims.class);
 
 	public void imsSystem() {
+		
 		LOGGER.info("What is your username");
 		String username = Utils.getInput();
 		LOGGER.info("What is your password");
@@ -40,123 +41,140 @@ public class Ims {
 
 		init(username, password);
 		boolean stop = false;
-
-		LOGGER.info("Would yo like to sign in as admin or view?");
-		Security.printDomains();
-		Security sec = Security.getDomain();
-		if (sec.name() == "ADMIN") {
-
-			LOGGER.info("What is your username");
-			String username1 = Utils.getInput();
-			LOGGER.info("What is your password");
-			String password1 = Utils.getInput();
-			if (username1.toLowerCase().equals("hello") && password1.toLowerCase().equals("hello"))
-				;
-			{
-				LOGGER.info("Welcome");
-
-				do {
-
-					LOGGER.info("Which entity would you like to use?");
-					Domain.printDomains();
-
-					Domain domain = Domain.getDomain();
-					if (domain.name() == "STOP") {
-						LOGGER.info("Goodbye");
-						System.exit(0);
-					}
-
-					LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
-
-					Action.printActions();
-					Action action = Action.getAction();
-
-					switch (domain) {
-					case CUSTOMER:
-						CustomerController customerController = new CustomerController(
-								new CustomerServices(new CustomerDaoMysql(username, password)));
-						doAction(customerController, action);
-						break;
-					case ITEM:
-						ItemController itemController = new ItemController(
-								new ItemServices(new ItemsDaoMysql(username, password)));
-						doAction(itemController, action);
-						break;
-					case ORDER:
-						OrderController orderController = new OrderController(
-								new OrderServices(new OrdersDaoMysql(username, password)));
-						doAction(orderController, action);
-						break;
-					case ORDERLINE:
-						OrderlineController orderlineController = new OrderlineController(
-								new OrderlineServices(new OrderlineDaoMysql(username, password)));
-						doAction(orderlineController, action);
-						break;
-					case STOP:
-						stop = true;
-						break;
-					default:
-						break;
-					}
-				} while (!stop);
-				LOGGER.info("GOODBYE");
-
-			}
-		} else {
-
-			if (sec.name() == "VIEW") {
-				do {
-
-					LOGGER.info("Which entity would you like to use?");
-					Domain.printDomains();
-
-					Domain domain = Domain.getDomain();
-					if (domain.name() == "STOP") {
-						LOGGER.info("Goodbye");
-						System.exit(0);
-					}
-
-					LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
-
-					ReadOnly.printActions();
-					ReadOnly read = ReadOnly.getAction();
-
-					switch (domain) {
-					case CUSTOMER:
-						CustomerController customerController = new CustomerController(
-								new CustomerServices(new CustomerDaoMysql(username, password)));
-						readOnly(customerController, read);
-						break;
-					case ITEM:
-						ItemController itemController = new ItemController(
-								new ItemServices(new ItemsDaoMysql(username, password)));
-						readOnly(itemController, read);
-						break;
-					case ORDER:
-						OrderController orderController = new OrderController(
-								new OrderServices(new OrdersDaoMysql(username, password)));
-						readOnly(orderController, read);
-						break;
-					case ORDERLINE:
-						OrderlineController orderlineController = new OrderlineController(
-								new OrderlineServices(new OrderlineDaoMysql(username, password)));
-						readOnly(orderlineController, read);
-						break;
-					case STOP:
-						stop = true;
-						break;
-					default:
-						break;
-					}
-				} while (!stop);
-				LOGGER.info("GOODBYE");
-
-			}
-		}
-	}
-
+		do {
 	
 
+//		LOGGER.info("Would yo like to sign in as admin or view?");
+//		Security.printDomains();
+//		Security sec = Security.getDomain();
+		
+//		switch (sec) {
+//		case ADMIN:
+//			Admin admin = new Admin();
+//			admin.adminLogIn();
+//			break;
+//		case VIEW:
+//		
+//		default:
+//			break;
+//		}
+//		}while(!stop);
+
+//		if (sec.name() == "ADMIN") 
+//
+//			LOGGER.info("What is your username");
+//			String username1 = Utils.getInput();
+//			LOGGER.info("What is your password");
+//			String password1 = Utils.getInput();
+////
+//			if (username1.toLowerCase().equals("hello") && password1.toLowerCase().equals("hello"));
+//			
+//				LOGGER.info("welcome");
+
+				LOGGER.info("Which entity would you like to use?");
+				Domain.printDomains();
+
+				Domain domain = Domain.getDomain();
+				if (domain.name() == "STOP") {
+					LOGGER.info("Goodbye");
+					System.exit(0);
+				}
+
+				LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
+
+				Action.printActions();
+				Action action = Action.getAction();
+
+				switch (domain) {
+				case CUSTOMER:
+					CustomerController customerController = new CustomerController(
+							new CustomerServices(new CustomerDaoMysql(username, password)));
+					doAction(customerController, action);
+					break;
+				case ITEM:
+					ItemController itemController = new ItemController(
+							new ItemServices(new ItemsDaoMysql(username, password)));
+					doAction(itemController, action);
+					break;
+				case ORDER:
+					OrderController orderController = new OrderController(
+							new OrderServices(new OrdersDaoMysql(username, password)));
+					doAction(orderController, action);
+					break;
+				case ORDERLINE:
+					OrderlineController orderlineController = new OrderlineController(
+							new OrderlineServices(new OrderlineDaoMysql(username, password)));
+					doAction(orderlineController, action);
+					break;
+				case STOP:
+					stop = true;
+					break;
+				default:
+					break;
+				}
+		}while(!stop);
+	}
+
+
+
+
+		
+		
+//			}}else {
+//				if (sec.name() == "VIEW") {
+//
+//					LOGGER.info("Which entity would you like to use?");
+//					Domain.printDomains();
+//
+//					Domain domain = Domain.getDomain();
+//					if (domain.name() == "STOP") {
+//						LOGGER.info("Goodbye");
+//						System.exit(0);
+//					}
+//
+//					LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
+//
+//					ReadOnly.printActions();
+//					ReadOnly read = ReadOnly.getAction();
+//
+//					switch (domain) {
+//					case CUSTOMER:
+//						CustomerController customerController = new CustomerController(
+//								new CustomerServices(new CustomerDaoMysql(username, password)));
+//						readOnly(customerController, read);
+//						break;
+//					case ITEM:
+//						ItemController itemController = new ItemController(
+//								new ItemServices(new ItemsDaoMysql(username, password)));
+//						readOnly(itemController, read);
+//						break;
+//					case ORDER:
+//						OrderController orderController = new OrderController(
+//								new OrderServices(new OrdersDaoMysql(username, password)));
+//						readOnly(orderController, read);
+//						break;
+//					case ORDERLINE:
+//						OrderlineController orderlineController = new OrderlineController(
+//								new OrderlineServices(new OrderlineDaoMysql(username, password)));
+//						readOnly(orderlineController, read);
+//						break;
+//					case STOP:
+//						stop = true;
+//						break;
+//					default:
+//						break;
+//			
+//					}}
+//		}
+				
+
+				
+
+				
+		
+	
+
+			
 	public void doAction(CrudController<?> crudController, Action action) {
 		switch (action) {
 		case CREATE:
@@ -182,6 +200,8 @@ public class Ims {
 		switch (read) {
 		case READ:
 			crudController.readAll();
+			break;
+		case RETURN:
 			break;
 		default:
 			break;
