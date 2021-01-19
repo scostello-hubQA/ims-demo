@@ -16,6 +16,7 @@ import com.qa.ims.controller.CustomerController;
 import com.qa.ims.controller.ItemController;
 import com.qa.ims.controller.OrderController;
 import com.qa.ims.controller.OrderlineController;
+import com.qa.ims.controller.ReadOnly;
 import com.qa.ims.persistence.dao.CustomerDaoMysql;
 import com.qa.ims.persistence.dao.ItemsDaoMysql;
 import com.qa.ims.persistence.dao.OrderlineDaoMysql;
@@ -39,13 +40,20 @@ public class Ims {
 
 		init(username, password);
 		boolean stop = false;
+
+		LOGGER.info("Would yo like to sign in as admin or view?");
+		Security.printDomains();
+		Security sec = Security.getDomain();
+		if (sec.name() == "ADMIN") {
+
+		
 		do {
 
 			LOGGER.info("Which entity would you like to use?");
 			Domain.printDomains();
-			
+
 			Domain domain = Domain.getDomain();
-			if(domain.name() == "STOP") {
+			if (domain.name() == "STOP") {
 				LOGGER.info("Goodbye");
 				System.exit(0);
 			}
@@ -62,15 +70,18 @@ public class Ims {
 				doAction(customerController, action);
 				break;
 			case ITEM:
-				ItemController itemController = new ItemController(new ItemServices(new ItemsDaoMysql(username, password)));
+				ItemController itemController = new ItemController(
+						new ItemServices(new ItemsDaoMysql(username, password)));
 				doAction(itemController, action);
 				break;
 			case ORDER:
-				OrderController orderController = new OrderController(new OrderServices(new OrdersDaoMysql(username, password)));
+				OrderController orderController = new OrderController(
+						new OrderServices(new OrdersDaoMysql(username, password)));
 				doAction(orderController, action);
 				break;
 			case ORDERLINE:
-				OrderlineController orderlineController = new OrderlineController(new OrderlineServices(new OrderlineDaoMysql(username, password)));
+				OrderlineController orderlineController = new OrderlineController(
+						new OrderlineServices(new OrderlineDaoMysql(username, password)));
 				doAction(orderlineController, action);
 				break;
 			case STOP:
@@ -81,6 +92,55 @@ public class Ims {
 			}
 		} while (!stop);
 		LOGGER.info("GOODBYE");
+		
+		}if(sec.name()=="VIEW") {
+			do {
+
+				LOGGER.info("Which entity would you like to use?");
+				Domain.printDomains();
+
+				Domain domain = Domain.getDomain();
+				if (domain.name() == "STOP") {
+					LOGGER.info("Goodbye");
+					System.exit(0);
+				}
+
+				LOGGER.info("What would you like to do with " + domain.name().toLowerCase() + ":");
+
+				ReadOnly.printActions();
+				ReadOnly read = ReadOnly.getAction();
+
+				switch (domain) {
+				case CUSTOMER:
+					CustomerController customerController = new CustomerController(
+							new CustomerServices(new CustomerDaoMysql(username, password)));
+					readOnly(customerController, read);
+					break;
+				case ITEM:
+					ItemController itemController = new ItemController(
+							new ItemServices(new ItemsDaoMysql(username, password)));
+					readOnly(itemController, read);
+					break;
+				case ORDER:
+					OrderController orderController = new OrderController(
+							new OrderServices(new OrdersDaoMysql(username, password)));
+					readOnly(orderController, read);
+					break;
+				case ORDERLINE:
+					OrderlineController orderlineController = new OrderlineController(
+							new OrderlineServices(new OrderlineDaoMysql(username, password)));
+					readOnly(orderlineController, read);
+					break;
+				case STOP:
+					stop = true;
+					break;
+				default:
+					break;
+				}
+			} while (!stop);
+			LOGGER.info("GOODBYE");
+			
+		}
 
 	}
 
@@ -102,6 +162,17 @@ public class Ims {
 			break;
 		default:
 			break;
+		}
+	}
+
+	public void readOnly(CrudController<?> crudController, ReadOnly read) {
+		switch (read) {
+		case READ:
+			crudController.readAll();
+			break;
+		default:
+			break;
+
 		}
 	}
 
