@@ -75,8 +75,10 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
-
+Once the repo has been forked/cloned,
+1. open a CLI in the folder where the project is located
+2. Run the ```mvn clean package```
+3. After this the jar file can be run using the ```...```
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
