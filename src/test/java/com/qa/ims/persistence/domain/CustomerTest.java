@@ -1,11 +1,11 @@
 package com.qa.ims.persistence.domain;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+
 
 import org.junit.Before;
 import org.junit.Test;
@@ -85,45 +85,52 @@ public class CustomerTest {
 	public void checkEqualityBetweenDifferentObjectsNullName() {
 		customer.setFirstName(null);
 		other.setFirstName(null);
-		assertTrue(customer.equals(other));
+//		assertTrue(customer.equals(other));
+		assertEquals(customer, other);
 	}
 	
 	@Test
 	public void nullId() {
 		customer.setId(null);
-		assertFalse(customer.equals(other));
+//		assertFalse(customer.equals(other));
+		assertNotEquals(customer, other);
 	}
 	
 	@Test
 	public void nullIdOnBoth() {
 		customer.setId(null);
 		other.setId(null);
-		assertTrue(customer.equals(other));
+//		assertTrue(customer.equals(other));
+		assertEquals(customer, other);
 	}
 	
 	@Test
 	public void otherIdDifferent() {
 		other.setId(2L);
-		assertFalse(customer.equals(other));
+//		assertFalse(customer.equals(other));
+		assertNotEquals(customer, other);
 	}
 	
 	@Test
 	public void nullSurname() {
 		customer.setSurname(null);
-		assertFalse(customer.equals(other));
+//		assertFalse(customer.equals(other));
+		assertNotEquals(customer, other);
 	}
 	
 	@Test
 	public void nullSurnameOnBoth() {
 		customer.setSurname(null);
 		other.setSurname(null);
-		assertTrue(customer.equals(other));
+//		assertTrue(customer.equals(other));
+		assertEquals(customer, other);
 	}
 	
 	@Test
 	public void otherSurnameDifferent() {
 		other.setSurname("thompson");
-		assertFalse(customer.equals(other));
+//		assertFalse(customer.equals(other));
+		assertNotEquals(customer, other);
 	}
 	
 	@Test
