@@ -76,6 +76,7 @@ It gives us a break down of 'code smells', 'vunerability', 'Bugs' and 'Security 
 ```
 
 ```
+![img](/Project Diagrams/ERD-IMS.png)
 
 ## Deployment
 
