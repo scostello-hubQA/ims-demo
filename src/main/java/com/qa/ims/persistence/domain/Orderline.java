@@ -7,9 +7,9 @@ public class Orderline {
 	private Long orderId;
 	private Integer quantity;
 	private Double price;
-	private Long customer_id;
-	private String first_name;
-	private String item_name;
+	private Long customerId;
+	private String firstName;
+	private String itemName;
 	
 	
 	
@@ -34,16 +34,16 @@ public class Orderline {
 
 
 	public Orderline(Long orderlineId, Long itemId, Long orderId, Integer quantity, Double price,
-			Long customer_id, String first_name, String item_name) {
+			Long customerId, String firstName, String itemName) {
 		super();
 		this.orderlineId = orderlineId;
 		this.itemId = itemId;
 		this.orderId = orderId;
 		this.quantity = quantity;
 		this.price = price;
-		this.customer_id = customer_id;
-		this.first_name = first_name;
-		this.item_name = item_name;
+		this.customerId = customerId;
+		this.firstName = firstName;
+		this.itemName = itemName;
 	}
 	
 	public Long getOrderlineId() {
@@ -91,9 +91,9 @@ public class Orderline {
 
 	@Override
 	public String toString() {
-		return "Orderline ID: " + orderlineId + ", Item ID: " + itemId + ", Item Name: " + item_name + ", Order ID: " + orderId + ", Quantity: "
-				+ quantity + ", Individual Price: " + price + ", Total Price: " + price*quantity + ", Customers ID: " + customer_id
-				+ ", First Name of Customer: " + first_name;
+		return "Orderline ID: " + orderlineId + ", Item ID: " + itemId + ", Item Name: " + itemName + ", Order ID: " + orderId + ", Quantity: "
+				+ quantity + ", Individual Price: " + price + ", Total Price: " + price*quantity + ", Customers ID: " + customerId
+				+ ", First Name of Customer: " + firstName;
 	}
 
 
