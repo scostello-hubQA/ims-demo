@@ -45,15 +45,16 @@ This project will then be installed into Eclipse.
 Before running you will need to update the JDBC URL to your own in order to link it to your MySql instance, this can be found in the Ims.java, and the DaoMysql for Customer, Items, Orderline and Orders.
 
 Once this link has been set up, you can right click on the Runner.java class and select run as java application (you can use this as a quick test of the connection set up);
-![](Project%20Diagrams/Installing/rightclick)
+![](Project%20Diagrams/Installing/rightclick.png)
 
-![](Project%20Diagrams/Installing/runas)
+![](Project%20Diagrams/Installing/runas.png)
 
-if this is successfull you will be able to move forward into the ## deployment ## section below 
+If this is successfull you will be able to move forward into the **_Deployment_** section below 
 
 
 
-End with an example of getting some data out of the system or using it for a little demo
+Just as a little demo - 
+![](Project%20Diagrams/Installing/itemreturn.png)
 
 ## Running the tests
 
