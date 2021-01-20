@@ -48,12 +48,12 @@ public class OrderController implements CrudController<Orders> {
 	@Override
 	public Orders update() {
 LOGGER.info("please enter the Order ID of the order you wish you update");
-		Long order_id = Long.valueOf(getInput());
+		Long orderId = Long.valueOf(getInput());
 		LOGGER.info("Please enter the customer ID relevent to this order");
 		Long customerId = Long.valueOf(getInput());
 		LOGGER.info("Please update order date");
 		String dateplaced = getInput();
-		Orders orders = orderservice.update(new Orders(order_id, customerId, dateplaced));
+		Orders orders = orderservice.update(new Orders(orderId, customerId, dateplaced));
 		LOGGER.info("Order has been updated");
 		
 		return orders;
