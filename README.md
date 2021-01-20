@@ -32,17 +32,19 @@ What things you need to install the software and how to install them
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+Step one: in your eclipse, File, Import, Existing Maven Project
+Step two: browse root directory and select the folder
+step three : hit the checkbox and select finish 
 
-```
-Give the example
-```
+the project will then be installed into eclipse
 
-And repeat
+before running you will need to update the JDBC URL to your own in order to link it to your MySql instance 
 
-```
-until finished
-```
+once this link has been set up, you can right click on the Runner.java class and select run as java application (you can use this as a quick test of the connection set up);
+
+if this is successfull you will be able to move forward into the ## deployment ## section below 
+
+
 
 End with an example of getting some data out of the system or using it for a little demo
 
