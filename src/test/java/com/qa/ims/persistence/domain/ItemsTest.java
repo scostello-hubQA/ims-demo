@@ -23,13 +23,13 @@ public class ItemsTest {
 
 	@Test
 	public void settersTest() {
-		assertNotNull(item.getItem_id());
+		assertNotNull(item.getItemId());
 		assertNotNull(item.getItemName());
 		assertNotNull(item.getPrice());
 		assertNotNull(item.getStock());
 
-		item.setItem_id(null);
-		assertNull(item.getItem_id());
+		item.setItemId(null);
+		assertNull(item.getItemId());
 		item.setItemName(null);
 		assertNull(item.getItemName());
 		item.setPrice(null);
@@ -52,7 +52,7 @@ public class ItemsTest {
 
 	@Test
 	public void createItemWithId() {
-		assertEquals(1L, item.getItem_id(), 0);
+		assertEquals(1L, item.getItemId(), 0);
 		assertEquals("Carrot cake", item.getItemName());
 		assertEquals(2.75, item.getPrice(), 0.01);
 		assertEquals(100, item.getStock(), 0);
@@ -90,21 +90,21 @@ public class ItemsTest {
 
 	@Test
 	public void nullId() {
-		item.setItem_id(null);
+		item.setItemId(null);
 		assertFalse(item.equals(other));
 	}
 
 	@Test
 	public void nulldOnBoth() {
-		item.setItem_id(null);
-		other.setItem_id(null);
+		item.setItemId(null);
+		other.setItemId(null);
 		assertTrue(item.equals(other));
 
 	}
 
 	@Test
 	public void otherIdDifferent() {
-		other.setItem_id(2L);
+		other.setItemId(2L);
 		assertFalse(item.equals(other));
 
 	}
@@ -155,7 +155,7 @@ public class ItemsTest {
 	@Test
 	public void constructorWithoutId() {
 		Items item = new Items("sponge", 4.99, 10);
-		assertNull(item.getItem_id());
+		assertNull(item.getItemId());
 		assertNotNull(item.getItemName());
 		assertNotNull(item.getPrice());
 		assertNotNull(item.getStock());

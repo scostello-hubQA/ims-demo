@@ -17,21 +17,21 @@ public class Items {
 	}
 
 
-	public Items(Long item_id, String itemName, Double price, Integer stock) {
-		this.itemId = item_id;
+	public Items(Long itemId, String itemName, Double price, Integer stock) {
+		this.itemId = itemId;
 		this.itemName = itemName;
 		this.price = price;
 		this.stock = stock;
 	}
 
 
-	public Long getItem_id() {
+	public Long getItemId() {
 		return itemId;
 	}
 
 
-	public void setItem_id(Long item_id) {
-		this.itemId = item_id;
+	public void setItemId(Long itemId) {
+		this.itemId = itemId;
 	}
 
 

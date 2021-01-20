@@ -113,7 +113,7 @@ public class ItemsDaoMysql implements Dao<Items> {
 			stmt.setString(1, t.getItemName());
 			stmt.setDouble(2, t.getPrice());
 			stmt.setInt(3, t.getStock());
-			stmt.setLong(4, t.getItem_id());
+			stmt.setLong(4, t.getItemId());
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
 			LOGGER.error(e.getMessage());

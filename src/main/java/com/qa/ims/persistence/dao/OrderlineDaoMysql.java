@@ -39,10 +39,10 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 		Long orderId = resultSet.getLong("order_id");
 		Integer quantity = resultSet.getInt("quantity");
 		Double price = resultSet.getDouble("price");
-		Long customer_id = resultSet.getLong("customer_id");
-		String first_name = resultSet.getString("first_name");
-		String item_name = resultSet.getString("item_name");
-		return new Orderline(orderlineId, itemId, orderId, quantity, price, customer_id, first_name, item_name);
+		Long customerId = resultSet.getLong("customer_id");
+		String firstName = resultSet.getString("first_name");
+		String itemName = resultSet.getString("item_name");
+		return new Orderline(orderlineId, itemId, orderId, quantity, price, customerId, firstName, itemName);
 
 	}
 

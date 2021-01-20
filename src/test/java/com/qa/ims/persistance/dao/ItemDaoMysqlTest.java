@@ -1,7 +1,7 @@
 package com.qa.ims.persistance.dao;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+
 import static org.junit.Assert.assertNotSame;
 
 import java.sql.Connection;
@@ -53,7 +53,7 @@ public class ItemDaoMysqlTest {
 		Items item = new Items(1l, itemName, price, stock);
 		Items savedItem = new Items(1l, itemName, price, stock);
 		item = itemsDaoMysql.create(item);
-		item.setItem_id(1l);
+		item.setItemId(1l);
 		assertEquals(savedItem, item);
 		
 	}
@@ -66,7 +66,7 @@ public class ItemDaoMysqlTest {
 		Items item = new Items(1l, itemName, price, stock);
 		Items savedItem = new Items(1l, itemName, price, stock);
 		item = itemsDaoMysql.create(item);
-		item.setItem_id(1l);
+		item.setItemId(1l);
 		itemsDaoMysql.readItem(1l);
 		assertEquals(savedItem, item);
 	
@@ -82,7 +82,7 @@ public class ItemDaoMysqlTest {
 		Items item = new Items(1l, itemName, price, stock);
 		Items savedItem = new Items(1l, itemName, price, stock);
 		item = itemsDaoMysql.create(item);
-		item.setItem_id(1l);
+		item.setItemId(1l);
 		itemsDaoMysql.update(item);
 		assertEquals(savedItem, item);
 		
@@ -114,7 +114,7 @@ public class ItemDaoMysqlTest {
 		Items item = new Items(id, itemName, price, stock);
 		Items savedItem = new Items(1l, itemName, price, stock);
 		itemsDaoMysql.create(item);
-		item.setItem_id(1l);
+		item.setItemId(1l);
 		itemsDaoMysql.delete(1l);
 		assertNotSame(savedItem, item);
 	}
