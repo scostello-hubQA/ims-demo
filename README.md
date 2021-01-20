@@ -1,9 +1,12 @@
 Coverage: 76.1% on src/main/java  
 # Inventory Management System
 
-This project allowed me to experience several new and different technologies such as...
+This is a simple database that enables the user to connect to at local MySQL server (currently) and to perform basic  
+CRUD funtions through the use of a CLI. 
 
-The project document folder contains my...
+This project allowed me to experience several new and different technologies such as IDE's, build tools, version control and programming languages. 
+
+The project document folder contains my daily updates to certain files, such as the risk assessment and the jira board, as well as my presentation in .pdf format. 
 
 ## Getting Started
 
