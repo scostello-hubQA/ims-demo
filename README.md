@@ -25,6 +25,7 @@ What things you need to install the software and how to install them
 * Maven 
 * Git Bash
 ```
+---
 
 ### Installing
 
@@ -73,7 +74,7 @@ Here we have SonarQube, this tests the viability of our whole source code.
 It gives us a break down of 'code smells', 'vunerability', 'Bugs' and 'Security Hotspots'. 
 
 ```
-Give an example
+![SonarQube](.\Users\Sam Costello\Desktop\SQEG.png)
 ```
 
 ## Deployment
