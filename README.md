@@ -34,7 +34,10 @@ A step by step series of examples that tell you how to get a development env run
 
 **_Step One:_** In your eclipse, File, Import, Existing Maven Project
 ![](Project%20Diagrams/Installing/stepOne.png)
+
 **_Step Two:_** Browse root directory and select the folder
+![](Project%20Diagrams/Installing/stepTwoandThree.png)
+
 **_Step Three_** : Hit the checkbox and select finish 
 
 the project will then be installed into eclipse
