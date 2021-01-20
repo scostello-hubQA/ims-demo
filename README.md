@@ -40,11 +40,14 @@ A step by step series of examples that tell you how to get a development env run
 
 **_Step Three_** : Hit the checkbox and select finish 
 
-the project will then be installed into eclipse
+This project will then be installed into Eclipse.
 
-before running you will need to update the JDBC URL to your own in order to link it to your MySql instance 
+Before running you will need to update the JDBC URL to your own in order to link it to your MySql instance, this can be found in the Ims.java, and the DaoMysql for Customer, Items, Orderline and Orders.
 
-once this link has been set up, you can right click on the Runner.java class and select run as java application (you can use this as a quick test of the connection set up);
+Once this link has been set up, you can right click on the Runner.java class and select run as java application (you can use this as a quick test of the connection set up);
+![](Project%20Diagrams/Installing/rightclick)
+
+![](Project%20Diagrams/Installing/runas)
 
 if this is successfull you will be able to move forward into the ## deployment ## section below 
 
