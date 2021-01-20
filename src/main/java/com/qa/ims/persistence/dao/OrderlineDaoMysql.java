@@ -92,6 +92,8 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 				Statement stmt = conn.createStatement();) {
 			stmt.executeUpdate("insert into orderline(item_id, order_id, quantity) values('"
 					+ orderline.getItemId() + "','" + orderline.getOrderId() + "','" + orderline.getQuantity() + "')");
+			
+			
 			return readLatest();
 		} catch (Exception e) {
 			LOGGER.debug(e.getStackTrace());
@@ -100,6 +102,7 @@ public class OrderlineDaoMysql implements Dao<Orderline> {
 		}
 		return null;
 	}
+	
 
 	public Orderline readOrderline(Long orderlineId) {
 		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);

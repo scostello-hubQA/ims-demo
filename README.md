@@ -61,7 +61,7 @@ If you wish to run the tests:
 ```
 
 ### Integration Tests 
-Explain what these tests test, why and how to run them
+This pulls the unit tests together to test the behaviours between the individual units;
 
 ```
 Give an example
@@ -104,6 +104,6 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Vinesh 
+* Aswene
+* Nick
