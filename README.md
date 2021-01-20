@@ -9,6 +9,8 @@ This project allowed me to experience several new and different technologies suc
 
 The project document folder contains my daily updates to certain files, such as the risk assessment and the jira board, as well as my presentation in .pdf format. 
 
+---
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -16,6 +18,9 @@ These instructions will get you a copy of the project up and running on your loc
 1. **_Step one_** You can fork and clone this to your local computer  
 2. **_Step two_** Open the project in your IDE as a Maven project  
 3. **_Step three_** You will need to change the JDBCconnection url
+
+---
+
 ### Prerequisites
 
 What things you need to install the software and how to install them
@@ -45,16 +50,19 @@ This project will then be installed into Eclipse.
 Before running you will need to update the JDBC URL to your own in order to link it to your MySql instance, this can be found in the Ims.java, and the DaoMysql for Customer, Items, Orderline and Orders.
 
 Once this link has been set up, you can right click on the Runner.java class and select run as java application (you can use this as a quick test of the connection set up);
+
 ![](Project%20Diagrams/Installing/rightclick.png)
 
 ![](Project%20Diagrams/Installing/runas.png)
 
-If this is successfull you will be able to move forward into the **_Deployment_** section below 
-
-
 
 Just as a little demo - 
+
 ![](Project%20Diagrams/Installing/itemreturn.png)
+
+If this is successfull you will be able to move forward into the **_Deployment_** section below 
+
+---
 
 ## Running the tests
 
