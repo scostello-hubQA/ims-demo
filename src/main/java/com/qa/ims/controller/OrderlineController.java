@@ -6,12 +6,12 @@ import org.apache.log4j.Logger;
 
 import com.qa.ims.persistence.domain.Orderline;
 import com.qa.ims.services.CrudServices;
-import com.qa.ims.services.OrderlineServices;
 import com.qa.ims.utils.Utils;
 
 public class OrderlineController implements CrudController<Orderline> {
 	
-	public static final Logger LOGGER = Logger.getLogger(Orderline.class);
+	//convention to name the class Logger after the class itself \/
+	public static final Logger LOGGER = Logger.getLogger(OrderlineController.class);
 	
 	private CrudServices<Orderline> orderlineServices;
 	

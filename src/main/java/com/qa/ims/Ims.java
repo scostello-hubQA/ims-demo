@@ -45,7 +45,7 @@ public class Ims {
 			Domain.printDomains();
 			
 			Domain domain = Domain.getDomain();
-			if(domain.name() == "STOP") {
+			if(domain.name().equals("STOP")) {
 				LOGGER.info("Goodbye");
 				System.exit(0);
 			}
