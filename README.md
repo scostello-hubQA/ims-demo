@@ -77,8 +77,10 @@ Give an example
 
 Once the repo has been forked/cloned,
 1. open a CLI in the folder where the project is located
-2. Run the ```mvn clean package```
-3. After this the jar file can be run using the ```...```
+2. Run the ```mvn clean```
+3. This has removed the target folder, now you want to run ```mvn package``` to create the jar file
+4. After this you can see the targt folder is back run ```cd target```
+5. In order to run the program ```java -jar sam-ims-0.0.1-jar-with-dependencies.jar``` _tab will also autocomplete_
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
