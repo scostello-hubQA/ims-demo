@@ -87,11 +87,11 @@ public class ItemsDaoMysql implements Dao<Items> {
 		return null;
 	}
 
-	public Items readItem(Long item_id) {
+	public Items readItem(Long itemId) {
 		String query = "SELECT * FROM items WHERE item_id = ?";
 		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
 				PreparedStatement stmt = connection.prepareStatement(query);){
-			stmt.setLong(1, item_id);
+			stmt.setLong(1, itemId);
 			try(ResultSet rs = stmt.executeQuery();){
 				rs.next();
 				return itemsFromResultSet(rs);
