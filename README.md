@@ -1,4 +1,5 @@
 Coverage: 76.1% on src/main/java  
+
 # Inventory Management System
 
 This is a simple database that enables the user to connect to at local MySQL server (currently) and to perform basic  
@@ -72,6 +73,8 @@ Give an example
 
 Here we have SonarQube, this tests the viability of our whole source code.  
 It gives us a break down of 'code smells', 'vunerability', 'Bugs' and 'Security Hotspots'. 
+
+![](Project%20Diagrams/SQEG.png)
 
 ```
 
