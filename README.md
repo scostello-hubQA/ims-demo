@@ -32,9 +32,10 @@ What things you need to install the software and how to install them
 
 A step by step series of examples that tell you how to get a development env running
 
-Step one: in your eclipse, File, Import, Existing Maven Project
-Step two: browse root directory and select the folder
-step three : hit the checkbox and select finish 
+**_Step One:_** In your eclipse, File, Import, Existing Maven Project
+![](Project%20Diagrams/Installing/stepOne.png)
+**_Step Two:_** Browse root directory and select the folder
+**_Step Three_** : Hit the checkbox and select finish 
 
 the project will then be installed into eclipse
 
