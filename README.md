@@ -27,10 +27,11 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 
-* [Java] (https://www.java.com/en/download/)
+* [Java](https://www.java.com/en/download/)
 * [Eclipse IDE](https://www.eclipse.org/downloads/)
 * [Maven](https://maven.apache.org/index.html) 
-* Git Bash
+* [Git](https://git-scm.com/downloads)
+* [MySQLWorkbench](https://dev.mysql.com/downloads/workbench/) - for local connection 
 
 
 ---
