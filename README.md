@@ -109,7 +109,7 @@ Once the repo has been forked/cloned,
 2. Run the ```mvn clean```
 3. This has removed the target folder, now you want to run ```mvn package``` to create the jar file
 4. After this you can see the targt folder is back run ```cd target```
-5. In order to run the program ```java -jar sam-ims-0.0.1-jar-with-dependencies.jar``` _tab will also autocomplete_
+5. In order to run the program ```java -jar sam-ims-'_version_'-jar-with-dependencies.jar``` _tab will also autocomplete_
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
