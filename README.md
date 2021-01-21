@@ -27,9 +27,9 @@ These instructions will get you a copy of the project up and running on your loc
 What things you need to install the software and how to install them
 
 ```
-* Java JRE
-* Eclipse or other IDE
-* [Maven](https://maven.apache.org/) 
+* [Java] (https://www.java.com/en/download/)
+* [Eclipse IDE](https://www.eclipse.org/downloads/)
+* [Maven](https://maven.apache.org/index.html) 
 * Git Bash
 ```
 ---
