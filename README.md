@@ -87,7 +87,7 @@ If you wish to run the tests:
 This pulls the unit tests together to test the behaviours between the individual units;
 
 ```
-Give an example
+Within the Controller Tests, I looked at how the Controller interacts with the Service 
 ```
 
 ### And coding style tests
@@ -130,6 +130,6 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Vinesh 
-* Aswene
-* Nick
+* Vinesh Ghela
+* Aswene Sivaraj 
+* Nicholas Johnson 
