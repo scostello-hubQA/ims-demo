@@ -12,8 +12,8 @@ public class Orderline {
 	private Long customerId;
 	private String firstName;
 	private String itemName;
-	private List<Long> items;
-	private List<Integer> quants;
+//	private List<Long> items;
+//	private List<Integer> quants;
 	
 	
 	
@@ -35,13 +35,13 @@ public class Orderline {
 	
 	
 	
-	
-public Orderline(Long orderId, List<Long> items, List<Integer> quants) {
-		super();
-		this.orderId = orderId;
-		this.items = items;
-		this.quants = quants;
-	}
+//	
+//public Orderline(Long orderId, List<Long> items, List<Integer> quants) {
+//		super();
+//		this.orderId = orderId;
+//		this.items = items;
+//		this.quants = quants;
+//	}
 
 
 // use this for orderline compound 

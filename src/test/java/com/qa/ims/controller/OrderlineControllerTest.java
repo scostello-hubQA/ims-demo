@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import com.mysql.cj.protocol.FullReadInputStream;
 import com.qa.ims.persistence.domain.Orderline;
 import com.qa.ims.services.OrderlineServices;
 
@@ -38,17 +39,33 @@ public class OrderlineControllerTest {
 		assertEquals(orderline, orderlineController.readAll());
 		
 	}
-	
 	@Test
 	public void createTest() {
 		Long orderId = 1L;
-		Long itemId = 2L;
-		Integer quantity = 3;
+		Long itemId = 1L;
+		Integer quantity = 2;
 		Mockito.doReturn(orderId.toString(), itemId.toString(), quantity.toString()).when(orderlineController).getInput();
 		Orderline orderline = new Orderline(itemId, orderId, quantity);
-		Orderline savedOrderline = new Orderline(1L, 2L, 3);
-		Mockito.when(orderlineServices.create(orderline)).thenReturn(savedOrderline);
-		assertEquals(savedOrderline, orderlineController.create());
+		Orderline savedOrdrline = new Orderline(1L, 1L, 2);
+		Mockito.when(orderlineServices.create(orderline)).thenReturn(savedOrdrline);
+		assertEquals(savedOrdrline, orderlineController.create());
+		
+	
+//	@Test
+//	public void createTest() {
+//		Long orderlineId = 1L;
+//		Long orderId = 1L;
+//		Long itemId = 2L;
+//		Integer quantity = 3;
+//		Double price = 5.00;
+//		Long customerId = 1L;
+//		String firstName = "sally";
+//		String itemName = "carrot cake";
+//		Mockito.doReturn(orderlineId.toString(), orderId.toString(), itemId.toString(), quantity.toString(), price.toString(), customerId.toString(), firstName.toString(), itemName.toString()).when(orderlineController).getInput();
+//		Orderline orderline = new Orderline(orderlineId, itemId, orderId, quantity, price, customerId, firstName, itemName);
+//		Orderline savedOrderline = new Orderline(1L, 1L, 2L, 3, 5.00, 1L, "sally", "carrot cake");
+//		Mockito.when(orderlineServices.create(orderline)).thenReturn(savedOrderline);
+//		assertEquals(savedOrderline, orderlineController.create());
 	}
 	
 	@Test

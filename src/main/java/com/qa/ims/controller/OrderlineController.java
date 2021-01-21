@@ -35,26 +35,36 @@ public class OrderlineController implements CrudController<Orderline> {
 
 	@Override
 	public Orderline create() {
-
-		List<Long> items = new ArrayList<>();
-		List<Integer> quants = new ArrayList<>();
-		String addItems = "Y";
-
+		
 		LOGGER.info("please enter a corresponding order ID");
 		Long orderId = Long.valueOf(getInput());
-
-		while (addItems.equals("Y")) {
-			LOGGER.info("please enter a corresponding item ID to add to this order");
-			items.add(Long.valueOf(getInput()));
-			LOGGER.info("please enter the quantity of this Item you wish to add");
-			quants.add(Integer.valueOf(getInput()));
-			LOGGER.info("do you want to continue adding items to this order? Y/N");
-			addItems = getInput().toUpperCase();
-		}
-
-		Orderline orderline = orderlineServices.create(new Orderline(orderId, items, quants));
+		LOGGER.info("please enter a corresponding item ID to add to this order");
+		Long itemId = Long.valueOf(getInput());
+		LOGGER.info("please enter the quantity of this Item you wish to add");
+		Integer quantity = Integer.valueOf(getInput());
+		Orderline orderline = orderlineServices.create(new Orderline(itemId, orderId, quantity));
 		LOGGER.info("your orderline is created");
 		return orderline;
+
+//		List<Long> items = new ArrayList<>();
+//		List<Integer> quants = new ArrayList<>();
+//		String addItems = "Y";
+//
+//		LOGGER.info("please enter a corresponding order ID");
+//		Long orderId = Long.valueOf(getInput());
+//
+//		while (addItems.equals("Y")) {
+//			LOGGER.info("please enter a corresponding item ID to add to this order");
+//			items.add(Long.valueOf(getInput()));
+//			LOGGER.info("please enter the quantity of this Item you wish to add");
+//			quants.add(Integer.valueOf(getInput()));
+//			LOGGER.info("do you want to continue adding items to this order? Y/N");
+//			addItems = getInput().toUpperCase();
+//		}
+//
+//		Orderline orderline = orderlineServices.create(new Orderline(orderId, items, quants));
+//		LOGGER.info("your orderline is created");
+//		return orderline;
 	}
 
 	@Override

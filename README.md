@@ -1,4 +1,5 @@
-Coverage: 76.1% on src/main/java  
+Coverage: 73.2% on src/main/java  
+![](Project%20Diagrams/CurrentTesting.png)
 
 # Inventory Management System
 
@@ -28,7 +29,7 @@ What things you need to install the software and how to install them
 ```
 * Java JRE
 * Eclipse or other IDE
-* Maven 
+* [Maven](https://maven.apache.org/) 
 * Git Bash
 ```
 ---
