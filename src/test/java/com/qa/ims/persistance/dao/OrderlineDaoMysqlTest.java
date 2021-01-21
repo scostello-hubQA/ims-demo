@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.junit.Test;
 
 import com.qa.ims.Ims;
 import com.qa.ims.persistence.dao.OrderlineDaoMysql;
-import com.qa.ims.persistence.domain.Customer;
+//import com.qa.ims.persistence.domain.Customer;
 import com.qa.ims.persistence.domain.Orderline;
 
 public class OrderlineDaoMysqlTest {
