@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderlineController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sam-ims</a> &gt; <a href="index.source.html" class="el_package">com.qa.ims.controller</a> &gt; <span class="el_source">OrderlineController.java</span></div><h1>OrderlineController.java</h1><pre class="source lang-java linenums">package com.qa.ims.controller;
+
+//import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.qa.ims.persistence.domain.Orderline;
+import com.qa.ims.services.CrudServices;
+import com.qa.ims.utils.Utils;
+
+public class OrderlineController implements CrudController&lt;Orderline&gt; {
+
+	// convention to name the class Logger after the class itself \/
+<span class="fc" id="L15">	public static final Logger LOGGER = Logger.getLogger(OrderlineController.class);</span>
+
+	private CrudServices&lt;Orderline&gt; orderlineServices;
+
+<span class="fc" id="L19">	public OrderlineController(CrudServices&lt;Orderline&gt; orderlineservices) {</span>
+<span class="fc" id="L20">		this.orderlineServices = orderlineservices;</span>
+<span class="fc" id="L21">	}</span>
+
+	String getInput() {
+<span class="nc" id="L24">		return Utils.getInput();</span>
+	}
+
+	@Override
+	public List&lt;Orderline&gt; readAll() {
+<span class="fc" id="L29">		List&lt;Orderline&gt; orderline = orderlineServices.readAll();</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">		for (Orderline orderlines : orderline) {</span>
+<span class="fc" id="L31">			LOGGER.info(orderlines.toString());</span>
+<span class="fc" id="L32">		}</span>
+<span class="fc" id="L33">		return orderline;</span>
+	}
+
+	@Override
+	public Orderline create() {
+		
+<span class="fc" id="L39">		LOGGER.info(&quot;please enter a corresponding order ID&quot;);</span>
+<span class="fc" id="L40">		Long orderId = Long.valueOf(getInput());</span>
+<span class="fc" id="L41">		LOGGER.info(&quot;please enter a corresponding item ID to add to this order&quot;);</span>
+<span class="fc" id="L42">		Long itemId = Long.valueOf(getInput());</span>
+<span class="fc" id="L43">		LOGGER.info(&quot;please enter the quantity of this Item you wish to add&quot;);</span>
+<span class="fc" id="L44">		Integer quantity = Integer.valueOf(getInput());</span>
+<span class="fc" id="L45">		Orderline orderline = orderlineServices.create(new Orderline(itemId, orderId, quantity));</span>
+<span class="fc" id="L46">		LOGGER.info(&quot;your orderline is created&quot;);</span>
+<span class="fc" id="L47">		return orderline;</span>
+
+//		List&lt;Long&gt; items = new ArrayList&lt;&gt;();
+//		List&lt;Integer&gt; quants = new ArrayList&lt;&gt;();
+//		String addItems = &quot;Y&quot;;
+//
+//		LOGGER.info(&quot;please enter a corresponding order ID&quot;);
+//		Long orderId = Long.valueOf(getInput());
+//
+//		while (addItems.equals(&quot;Y&quot;)) {
+//			LOGGER.info(&quot;please enter a corresponding item ID to add to this order&quot;);
+//			items.add(Long.valueOf(getInput()));
+//			LOGGER.info(&quot;please enter the quantity of this Item you wish to add&quot;);
+//			quants.add(Integer.valueOf(getInput()));
+//			LOGGER.info(&quot;do you want to continue adding items to this order? Y/N&quot;);
+//			addItems = getInput().toUpperCase();
+//		}
+//
+//		Orderline orderline = orderlineServices.create(new Orderline(orderId, items, quants));
+//		LOGGER.info(&quot;your orderline is created&quot;);
+//		return orderline;
+	}
+
+	@Override
+	public Orderline update() {
+<span class="fc" id="L72">		LOGGER.info(&quot;Please enter the corresponding orderline ID you wish to update&quot;);</span>
+<span class="fc" id="L73">		Long orderlineId = Long.valueOf(getInput());</span>
+<span class="fc" id="L74">		LOGGER.info(&quot;please enter the order ID linked with this line&quot;);</span>
+<span class="fc" id="L75">		Long orderId = Long.valueOf(getInput());</span>
+<span class="fc" id="L76">		LOGGER.info(&quot;Please enter the item ID you wish to update&quot;);</span>
+<span class="fc" id="L77">		Long itemId = Long.valueOf(getInput());</span>
+<span class="fc" id="L78">		LOGGER.info(&quot;please update the quantity of this item&quot;);</span>
+<span class="fc" id="L79">		Integer quantity = Integer.valueOf(getInput());</span>
+<span class="fc" id="L80">		Orderline orderline = orderlineServices.update(new Orderline(orderlineId, itemId, orderId, quantity));</span>
+
+<span class="fc" id="L82">		LOGGER.info(&quot;your orderline has been updated in line with the information given&quot;);</span>
+<span class="fc" id="L83">		return orderline;</span>
+	}
+
+	@Override
+	public void delete() {
+<span class="fc" id="L88">		LOGGER.info(&quot;Please enter the ID of the orderline you wish to delete: &quot;);</span>
+<span class="fc" id="L89">		Long orderlineId = Long.valueOf(getInput());</span>
+<span class="fc" id="L90">		orderlineServices.delete(orderlineId);</span>
+
+<span class="fc" id="L92">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

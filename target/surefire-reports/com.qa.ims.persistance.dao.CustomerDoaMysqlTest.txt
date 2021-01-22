@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.qa.ims.persistance.dao.CustomerDoaMysqlTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.356 sec
