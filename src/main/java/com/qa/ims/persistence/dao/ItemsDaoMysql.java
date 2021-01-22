@@ -105,21 +105,22 @@ public class ItemsDaoMysql implements Dao<Items> {
 		return null;
 	}
 
-	@Override
-	public Items update(Items t) {
-		String query = "UPDATE items SET item_name = ?, price = ?, stock = ? WHERE item_id = ?";
-		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
-				PreparedStatement stmt = connection.prepareStatement(query);){
-			stmt.setString(1, t.getItemName());
-			stmt.setDouble(2, t.getPrice());
-			stmt.setInt(3, t.getStock());
-			stmt.setLong(4, t.getItemId());
-		} catch (Exception e) {
-			LOGGER.debug(e.getStackTrace());
-			LOGGER.error(e.getMessage());
-		}
-		return null;
-	}
+//	@Override
+//	public Items update(Items t) {
+//		String query = "UPDATE items SET item_name = ?, price = ?, stock = ? WHERE item_id = ?";
+//		try (Connection connection = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+//				PreparedStatement stmt = connection.prepareStatement(query);){
+//			stmt.setString(1, t.getItemName());
+//			stmt.setDouble(2, t.getPrice());
+//			stmt.setInt(3, t.getStock());
+//			stmt.setLong(4, t.getItemId());
+//		} catch (Exception e) {
+//			LOGGER.debug(e.getStackTrace());
+//			LOGGER.error(e.getMessage());
+//		}
+//		return null;
+
+
 
 	@Override
 	public void delete(long id) {
@@ -132,6 +133,21 @@ public class ItemsDaoMysql implements Dao<Items> {
 
 		}
 
+	}
+
+	@Override
+	public Items update(Items t) {
+		try (Connection conn = DriverManager.getConnection(jdbcConnectionUrl, username, password);
+				Statement stmt = conn.createStatement();){
+			
+			stmt.executeUpdate("update items set item_name ='" + t.getItemName() + "', price = '" + t.getPrice() + "', stock ='" + t.getStock() + "' where item_id =" + t.getItemId());
+			return readItem(t.getItemId());
+		}catch (Exception e) {
+			LOGGER.debug(e.getStackTrace());
+			LOGGER.error(e.getMessage());
+			
+		}
+		return null;
 	}
 
 }
