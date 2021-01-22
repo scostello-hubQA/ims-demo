@@ -67,13 +67,13 @@
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="customerNameNullButOtherNameNotNull" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="equalsWithNull" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="nullIdOnBoth" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="nullSurnameOnBoth" time="0.001"/>
+  <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="nullSurnameOnBoth" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="nullSurname" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="equalsWithDifferentObject" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="toStringTest" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="otherSurnameDifferent" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="settersTest" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="createCustomerWithId" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="createCustomerWithId" time="0.001"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="hashCodeTest" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="hashCodeTestWithNull" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.CustomerTest" name="otherIdDifferent" time="0"/>

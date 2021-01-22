@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.qa.ims.controller.OrderControllerTest" time="0.088" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="com.qa.ims.controller.OrderControllerTest" time="0.111" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="14.0.1+7"/>
@@ -58,8 +58,8 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.qa.ims.controller.OrderControllerTest" name="readAllTest" time="0.069"/>
+  <testcase classname="com.qa.ims.controller.OrderControllerTest" name="readAllTest" time="0.09"/>
   <testcase classname="com.qa.ims.controller.OrderControllerTest" name="updateTest" time="0.005"/>
-  <testcase classname="com.qa.ims.controller.OrderControllerTest" name="createTest" time="0.004"/>
-  <testcase classname="com.qa.ims.controller.OrderControllerTest" name="deleteTest" time="0.01"/>
+  <testcase classname="com.qa.ims.controller.OrderControllerTest" name="createTest" time="0.012"/>
+  <testcase classname="com.qa.ims.controller.OrderControllerTest" name="deleteTest" time="0.004"/>
 </testsuite>

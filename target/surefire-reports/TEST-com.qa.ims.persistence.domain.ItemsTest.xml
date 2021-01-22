@@ -68,15 +68,15 @@
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="equalsWithNull" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="nullStockOnBoth" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="createItemWithId" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="otherStockDifferent" time="0.001"/>
+  <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="otherStockDifferent" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="equalsWithDifferentObject" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="toStringTest" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="settersTest" time="0.001"/>
+  <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="settersTest" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="nulldOnBoth" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="nullPrice" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="nullPrice" time="0.001"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="nullStock" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="itemNamesNotEqual" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="hashCodeTest" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="hashCodeTest" time="0.001"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="hashCodeTestWithNull" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="nullPriceOnBoth" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.ItemsTest" name="otherIdDifferent" time="0"/>

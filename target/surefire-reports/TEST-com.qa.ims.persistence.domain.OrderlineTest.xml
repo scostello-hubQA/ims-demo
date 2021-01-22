@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="22" failures="0" name="com.qa.ims.persistence.domain.OrderlineTest" time="0.004" errors="0" skipped="0">
+<testsuite tests="22" failures="0" name="com.qa.ims.persistence.domain.OrderlineTest" time="0.003" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="14.0.1+7"/>
@@ -58,25 +58,25 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="differentOrderId" time="0.001"/>
+  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="differentOrderId" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="nullOrderlineId" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="constructorWithoutId" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="constructorWithoutId" time="0.001"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="itemIdNullButOtherIdNotNull" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="nullQuantity" time="0.001"/>
+  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="nullQuantity" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="checkEqualityBetweenDifferentObjects" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="checkEquality" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="orderline2IdDifferent" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="equalsWithNull" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="nullQuantityForBoth" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="createOrderlineWithId" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="itemIdNotEqual" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="itemIdNotEqual" time="0.001"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="equalsWithDifferentObject" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="toStringTest" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="settersTest" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="orderIdNullBoth" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="nullOrderId1" time="0.001"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="checkEqualityBetweenDifferentObjectsNullInput" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="hashCodeTest" time="0.001"/>
+  <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="hashCodeTest" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="nullOrderlineIdOnBoth" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="orderline2QuantityDifferent" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrderlineTest" name="hashCodeTestWithNull" time="0"/>

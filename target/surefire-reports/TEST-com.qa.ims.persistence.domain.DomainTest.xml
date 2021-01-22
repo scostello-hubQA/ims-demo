@@ -58,8 +58,8 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.qa.ims.persistence.domain.DomainTest" name="orderTest" time="0.001"/>
-  <testcase classname="com.qa.ims.persistence.domain.DomainTest" name="customerTest" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.DomainTest" name="orderTest" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.DomainTest" name="customerTest" time="0.001"/>
   <testcase classname="com.qa.ims.persistence.domain.DomainTest" name="itemTest" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.DomainTest" name="stopTest" time="0"/>
 </testsuite>

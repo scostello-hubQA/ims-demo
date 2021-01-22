@@ -62,20 +62,20 @@
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="nullDate" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="createOrderWithId" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="customerIdNullOtherNotNull" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="constructorWithoutId" time="0.001"/>
-  <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="nullDateOnBoth" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="constructorWithoutId" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="nullDateOnBoth" time="0.001"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="checkEqualityBetweenDifferentObjects" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="checkEquality" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="customerIdNotEqual" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="dateEquality" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="equalsWithNull" time="0.001"/>
+  <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="equalsWithNull" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="equalsWithDifferentObjects" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="order2IdDifferent" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="nullOrderId" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="orderIdBothNull" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="toStringTest" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="settersTest" time="0"/>
-  <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="order2DateDifferent" time="0"/>
+  <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="order2DateDifferent" time="0.001"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="hashCodeNull" time="0"/>
   <testcase classname="com.qa.ims.persistence.domain.OrdersTest" name="hashCodeTest" time="0"/>
 </testsuite>
